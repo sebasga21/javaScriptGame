@@ -1,0 +1,377 @@
+/* Diseño del body */
+.mainMenu
+{
+    width: 100%;
+    height: 100vh;
+    padding: 0px;
+    margin: 0px;
+    /* background: linear-gradient(to bottom, #1e528e 0%,#728a7c 50%,#e9ce5d 100%); */
+    background: linear-gradient(to bottom, #154277 0%,#8b8b8b 30%,#e1c45e 70%,#b26339 100%);
+    /* background: linear-gradient(to bottom, #82addb 0%,#ebb2b1 100%);
+    /* background: linear-gradient(to bottom, #94c5f8 1%,#a6e6ff 40%,#b1b5ea 120%); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    overflow: hidden;
+}
+
+/* Diseño del suelo */
+#sueloMenu
+{
+    width: 500%;
+    height: 20%;
+    padding-top: 25px;
+    bottom: -15px;
+    background: url("../media/fondoJuego-removebg-preview.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: repeat-x;
+    z-index: 100;
+    position: absolute;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    outline: none;
+    opacity: 1;
+}
+
+/* Diseño de la tuberia */
+.tuberiaMenu
+{
+    width: 15%;
+    height: 40%;
+    z-index: 2;
+    position: absolute;
+    transform: rotate(180deg);
+    top: 0px;
+    left: 10%;
+    animation: aparicionTuberia 4s linear;
+}
+
+/* Animación de la tuberia para aparecer en pantalla */
+@keyframes aparicionTuberia
+{
+    0%
+    {
+        left: 120%;
+    }
+    100%
+    {
+        left: 10%;
+    }
+}
+
+/* Animación de la tuberia para salir de la pantalla y desaparecer*/
+.animationTuberia
+{
+    animation: desaparicionTuberia 3s linear;
+}
+
+@keyframes desaparicionTuberia
+{
+    0%
+    {
+        left: 10%;
+    }
+    100%
+    {
+        left: -50%;
+    }
+}
+
+/* Diseño del fantasma */
+#fantasmaMenu
+{
+    width: 20%;
+    height: 30%;
+    left: 7%;
+    bottom: 20%;
+    background: url("../media/pngegg.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: 1;
+    visibility: hidden;
+}
+
+/* Animación del fantasma para flotar */
+.animationFantasma
+{
+    animation: flotar 2s linear infinite;
+}
+
+@keyframes flotar
+{
+    0%
+    {
+        transform: translateY(0px);
+    }
+    50%
+    {
+        transform: translateY(-10px);
+    }
+    100%
+    {
+        transform: translateY(0px);
+    }
+}
+
+/* Animación del fantasma para bajar de la tuberia */
+.animationFantasma1
+{
+    animation: bajarPorTuberia 1s linear;
+}
+
+@keyframes bajarPorTuberia
+{
+    0%
+    {
+        bottom: 80%;
+    }
+    100%
+    {
+        bottom: 20%;
+    }
+}
+
+/* Animación del fantasma para moverse hacia el portal */
+.animationFantasma2
+{
+    animation: irAlPortal 2s linear;
+}
+
+@keyframes irAlPortal
+{
+    0%
+    {
+        left: 7%;
+        bottom: 20%;
+    }
+    25%
+    {
+        bottom: 21%;
+    }
+    50% 
+    {
+        bottom: 19%;
+    }
+    75%
+    {
+        bottom: 21%;
+    }
+    100%
+    {
+        left: 73%;
+        bottom: 20%;
+    }
+}
+
+/* Animación del fantasma para girar y disminuir de tamaño hasta
+desaparecer en el portal */
+.animationFantasma3
+{
+    animation: entrarEnElPortal 2s linear;
+}
+
+@keyframes entrarEnElPortal
+{
+    0%
+    {
+        width: 20%;
+        height: 30%;
+        transform: rotate(0deg);
+        left: 73%;
+        bottom: 20%;
+    }
+    50%
+    {
+        transform: rotate(540deg);
+    }
+    100%
+    {
+        width: 0%;
+        height: 0%;
+        transform: rotate(1080deg);
+        left: 86%;
+        bottom: 40%;
+    }
+}
+
+/* Diseño del portal */
+#portalMenu
+{
+    width: 0%;
+    height: 0%;
+    right: 7%;
+    bottom: 15%;
+    background: url("../media/7681b5a15d4bd9d1e39c6529f628eb-unscreen.gif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+}
+
+/* Animación del portal para aparecer */
+.animationPortal
+{
+    animation: aparicionPortal 1s linear;
+}
+
+@keyframes aparicionPortal
+{
+    0%
+    {
+        width: 0%;
+        height: 0%;
+    }
+    100%
+    {
+        width: 20%;
+        height: 45%;
+    }   
+}
+
+/* Animación del portal para desaparecer */
+.animationPortal1
+{
+    animation: desaparicionPortal 1s linear;
+}
+
+@keyframes desaparicionPortal
+{
+    0%
+    {
+        width: 20%;
+        height: 45%;
+    }
+    100%
+    {
+        width: 0%;
+        height: 0%;
+    }   
+}
+
+/* Diseño del contenedor del título y el botón play */
+.botonesMenu
+{
+    width: 85%;
+    height: 70%;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+}
+
+/* Diseño del titulo */
+.tituloMenu
+{
+    width: 70%;
+    height: 50%;
+    background: url("../media/generatedtext-removebg-preview2.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+}
+
+/* Animación del título para aparecer en pantalla */
+.animationTitulo 
+{
+    animation: aparicionTitulo 5s linear;
+    animation-timing-function: cubic-bezier(0.280, 0.840, 0.420, 1);
+}
+
+@keyframes aparicionTitulo 
+{
+    0%   
+    { 
+        transform: scale(1,1)      
+        translateY(0);
+        opacity: 0;
+    }
+    10%  
+    { 
+        transform: scale(1.1,.9)   
+        translateY(0);  
+    }
+    30% 
+    { 
+        transform: scale(.9,1.1)   
+        translateY(-100px); 
+    }
+    50% 
+    {
+        transform: scale(1.05,.95) 
+        translateY(0); 
+    }
+    57%  
+    { 
+        transform: scale(1,1)      
+        translateY(-7px); 
+    }
+    64%  
+    { 
+        transform: scale(1,1)      
+        çtranslateY(0); 
+    }
+    100% 
+    { 
+        transform: scale(1,1)      
+        translateY(0); 
+        opacity: 1;
+    }
+}
+
+/* Diseño del botón play */
+.botonPlayMenu
+{
+    width: 0%;
+    height: 0%;
+    background: url("../media/burbuja2Central.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    top: -5%;
+    cursor: pointer;
+}
+
+/* Diseño del botón play al pasar con el ratón por encima */
+.botonPlayMenu:hover
+{
+    transform: scale(0.95);
+    opacity: 0.8;
+}
+
+/* Animación del botón play para aparece en pantalla */
+.animationBotonPlay
+{
+    animation: aparicionBotonPlay 2s linear;
+}
+
+@keyframes aparicionBotonPlay
+{
+    0%
+    {
+        width: 0%;
+        height: 0%;
+        transform: rotate(0deg);
+    }
+    50%
+    {
+        transform: rotate(180deg);
+    }
+    100%
+    {
+        width: 40%;
+        height: 40%;
+        transform: rotate(360deg);
+    }
+}
+

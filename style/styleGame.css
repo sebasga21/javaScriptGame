@@ -1,0 +1,1736 @@
+/* Fuente de super mario */
+@font-face 
+{
+    font-family: superMario;
+    src: url("../media/font/super_mario_256/SuperMario256.ttf");
+}
+
+/* Diseño del body */
+.juego
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background: #0f2323;
+    overflow: hidden;
+    filter: brightness(100%);
+}
+
+/* Diseño cuadro de ayuda */
+.ayuda
+{
+    font-family: superMario;
+    width: 100%;
+    height: 10%;
+    bottom: 10%;
+    position: absolute;
+    margin: auto;
+    opacity: 1;
+    border-radius: 50px;
+    z-index: 999;
+    opacity: 0;
+    color: white;
+    font-size: 35px;
+    text-align: center;
+    letter-spacing: 3px;
+}
+
+/* Animación del cuadro de ayuda para aparecer */
+.animationAyuda
+{
+    animation: aparicionAyuda 2s linear;
+}
+
+@keyframes aparicionAyuda
+{
+    0%
+    {
+        opacity: 0;
+    }
+    100%
+    {
+        opacity: 1;
+    }
+}
+
+/* Animación del cuadro de ayuda para desaparecer */
+.animationAyuda1
+{
+    animation: desaparicionAyuda 2s linear;
+}
+
+@keyframes desaparicionAyuda
+{
+    0%
+    {
+        opacity: 1;
+    }
+    100%
+    {
+        opacity: 0;
+    }
+}
+
+/* Diseño de la barra de progreso */
+.progreso
+{
+    width: 60%; 
+    height: 4px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 500px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    position: relative;
+    opacity: 1;
+}
+
+.colorProgreso
+{
+    width: 100%; 
+    height: 4px;
+    position: absolute;
+    opacity: 1;
+}
+
+/* Animadión del progreso para moverse */
+.animationProgreso
+{
+    animation: movimientoProgreso 70s linear;
+}
+
+@keyframes movimientoProgreso
+{
+    0%
+    {
+        right: 100%;
+        background-color: #08fbe3;
+    }
+    100%
+    {
+        right: 0%;
+        background-color: #08fbe3;
+    }
+}
+
+/* Animadión del progreso para moverse */
+.animationProgreso1
+{
+    animation: desaparicionProgreso 2s linear;
+}
+
+@keyframes desaparicionProgreso
+{
+    0%
+    {
+        opacity: 1;
+    }
+    100%
+    {
+        opacity: 0;
+    }
+}
+
+/* Diseño del cielo */
+#cielo
+{
+    width: 65%; 
+    height: 50%;
+    /*background: linear-gradient(to bottom, #020111 10%, #3a3a52 100%);*/
+    /*background: linear-gradient(to bottom, #4a4969 0%,#7072ab 50%,#cd82a0 100%);*/
+    /*azul y amarillo (suave)*/
+    background: linear-gradient(to bottom, #1e528e 0%,#728a7c 50%,#e9ce5d 100%);
+    /*azul y amarillo (resaltado)*/
+    /*background: linear-gradient(to bottom, #154277 0%,#576e71 30%,#e1c45e 70%,#b26339 100%);*/
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    opacity: 1;
+}
+
+/* Animación ddel cielo para desaparecer */
+.animationCielo
+{
+    animation: desaparicionCielo 2s linear;
+}
+
+@keyframes desaparicionCielo
+{
+    0%
+    {
+        opacity: 1;
+    }
+    100%
+    {
+        opacity: 0;
+    }
+}
+
+/* Animación del cielo para aparecer */
+.animationCielo1
+{
+    animation: aparicionCielo 2s linear;
+}
+
+@keyframes aparicionCielo
+{
+    0%
+    {
+        opacity: 0;
+    }
+    100%
+    {
+        opacity: 1;
+    }
+}
+
+/* Diseño del fondo borroso */
+.fondoBorroso
+{
+    width: 75%;
+    height: 75%;
+    opacity: 0;
+    filter: blur(0rem);
+    position: relative;
+    background-color: white;
+    z-index: 800;
+    margin: auto;
+}
+
+/* Animación del fondo borroso */
+.animationFondoBorroso
+{
+    animation: aparicionFondoBorroso 2s linear;
+}
+
+@keyframes aparicionFondoBorroso
+{
+    0%
+    {
+        filter: blur(0rem);
+        opacity: 0;
+    }
+    100%
+    {
+        filter: blur(2rem);
+        opacity: 0.6;
+    }
+}
+
+/* Diseño de la/s estrella/s */
+.estrella
+{
+    width: 1px; 
+    height: 1px;
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+}
+
+/* Animaciones de diferentes duraciones para las estrellas */
+.animationEstrella1
+{
+    animation: iluminaciónIntermitente 5s linear infinite;
+}
+
+.animationEstrella2
+{
+    animation: iluminaciónIntermitente 10s linear infinite;
+}
+
+.animationEstrella3
+{
+    animation: iluminaciónIntermitente 15s linear infinite;
+}
+
+.animationEstrella4
+{
+    animation: iluminaciónIntermitente 20s linear infinite;
+}
+
+.animationEstrella5
+{
+    animation: iluminaciónIntermitente 25s linear infinite;
+}
+
+.animationEstrella6
+{
+    animation: iluminaciónIntermitente 30s linear infinite;
+}
+
+.animationEstrella7
+{
+    animation: iluminaciónIntermitente 35s linear infinite;
+}
+
+.animationEstrella8
+{
+    animation: iluminaciónIntermitente 40s linear infinite;
+}
+
+.animationEstrella9
+{
+    animation: iluminaciónIntermitente 45s linear infinite;
+}
+
+.animationEstrella10
+{
+    animation: iluminaciónIntermitente 50s linear infinite;
+}
+
+@keyframes iluminacionIntermitente
+{
+    0%
+    {
+        opacity: 1;
+    }
+    
+    50%
+    {
+        opacity: 0.05;
+    }
+    
+    100%
+    {
+        opacity: 1;
+    }
+}
+
+/* Diseño estrellas fugaces */
+/*
+.estrellaFugaz
+{
+    top: calc(50% - -119px);
+    left: calc(50% - 43px);
+    -webkit-animation-delay: 4000ms;
+    animation-delay: 4000ms;
+}
+
+.estrellaFugaz::before, .estrellaFugaz::after
+{
+    -webkit-animation-delay: 4000ms;
+    animation-delay: 4000ms;
+}
+*/
+
+/* Diseño de la/s nube/s */
+.nube
+{
+    width: 60px; 
+    height: 20px;
+    background: white;
+    border-radius: 100px;
+    position: absolute;
+    visibility: hidden;
+}
+
+.nube::before, .nube::after
+{
+    width: 30px; 
+    height: 25px;
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: -7px;
+    background-color: white;
+    border-radius: 100px;
+    transform: rotate(30deg);
+}
+
+.nube::after
+{
+    width: 45px; 
+    height: 20px;
+    left: 15px;
+}
+
+.nube1 
+{
+    top: 40px; 
+    transform: scale(0.5);
+    opacity: 0.75;
+}
+
+.nube2 
+{
+    top: 60px; 
+    opacity: 0.25;
+}
+
+.nube3 
+{
+    top: 80px;
+    transform: scale(0.75);
+    opacity: 0.5;
+}
+
+.nube4 
+{   
+    top: 100px; 
+    transform: scale(0.5);
+    opacity: 0.75;
+}
+
+.nube5
+{
+    top: 120px; 
+    transform: scale(0.25);
+    opacity: 1;
+    
+}
+
+.nube6 
+{
+    top: 120px; 
+    transform: scale(1);
+    opacity: 0.25;
+}
+
+.nube7 
+{
+    top: 140px; 
+    transform: scale(0.75);
+    opacity: 0.5;
+}
+
+.nube8 
+{
+    top: 160px; 
+    transform: scale(0.5);
+    opacity: 0.75;
+}
+
+.nube9 
+{
+    top: 200px; 
+    transform: scale(0.25);
+    opacity: 1;
+}
+
+/* Animaciones de diferentes duraciones para cada nube */
+.animationNube1
+{
+    animation: movimientoNubes 20s linear infinite;
+}
+
+.animationNube2
+{
+    animation: movimientoNubes 85s linear infinite;
+}
+
+.animationNube3
+{
+    animation: movimientoNubes 65s linear infinite;
+}
+
+.animationNube4
+{
+    animation: movimientoNubes 55s linear infinite;
+}
+
+.animationNube5
+{
+    animation: movimientoNubes 25s linear infinite;
+}
+
+.animationNube6
+{
+    animation: movimientoNubes 15s linear infinite;
+}
+
+.animationNube7
+{
+    animation: movimientoNubes 35s linear infinite;
+}
+
+.animationNube8
+{
+    animation: movimientoNubes 45s linear infinite;
+}
+
+.animationNube9
+{
+    animation: movimientoNubes 75s linear infinite;
+}
+
+@keyframes movimientoNubes
+{
+    0% 
+    {
+        left: 110%;
+    }
+      100% 
+    {
+        left: -5%;
+    }
+}
+
+/* Diseño del suelo */
+#suelo
+{
+    width: 500%; 
+    height: 12%;
+    padding-top: 25px;
+    left: 0px;
+    background: url("../media/fondoJuego-removebg-preview.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: repeat-x;
+    z-index: 100;
+    position: absolute;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    outline: none;
+    opacity: 1;
+}
+
+/* Animación del suelo para que se mueva */
+.animationSuelo
+{
+    animation: movimientoSuelo 70s linear;
+}
+
+@keyframes movimientoSuelo
+{
+    0%
+    {
+        left: 0px;
+    }
+    100%
+    {
+        left: -400%;
+    }
+}
+
+/* Animación del suelo para que desaparezca */
+.animationSuelo1
+{
+    animation: desaparicionSuelo 2s linear;
+}
+
+@keyframes desaparicionSuelo
+{
+    0%
+    {
+        opacity: 1;
+    }
+    100%
+    {
+        opacity: 0;
+    }
+}
+
+/* Diseño del portal de entrada */
+#portal
+{
+    width: 0%;
+    height: 0%;
+    left: 2%;
+    bottom: 8%;
+    transform: rotate(180deg);
+    background: url("../media/7681b5a15d4bd9d1e39c6529f628eb-unscreen.gif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 1;
+}
+
+/* Animación del portal de entrada para aparecer */
+.animationPortal
+{
+    animation: aparicionPortal 1s linear;
+}
+
+@keyframes aparicionPortal
+{
+    0%
+    {
+        width: 0%;
+        height: 0%;
+    }
+    100%
+    {
+        width: 10%;
+        height: 30%;
+    }
+}
+
+/* Animación del portal de entrada para desaparecer */
+.animationPortal1
+{
+    animation: desaparicionPortal 1s linear;
+}
+
+@keyframes desaparicionPortal
+{
+    0%
+    {
+        width: 10%;
+        height: 30%;
+    }
+    100%
+    {
+        width: 0%;
+        height: 0%;
+    }
+}
+
+/* Diseño del fantasma */
+#fantasma
+{
+    width: 0%;
+    height: 0%;
+    left: 6%;
+    bottom: 25%;
+    background: url("../media/pngegg.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 2;
+    position: absolute;
+    opacity: 1;
+}
+
+/* Animación del fantasma para flotar */
+.animationFantasma
+{
+    animation: flotar 2s linear infinite;
+}
+
+@keyframes flotar
+{
+    0%
+    {
+        transform: translateY(0px);
+    }
+    50%
+    {
+        transform: translateY(-10px);
+    }
+    100%
+    {
+        transform: translateY(0px);
+    }
+}
+
+/* Animación del fantasma para aparecer */
+.animationFantasma1
+{
+    animation: aparicionFantasma 2s linear;
+}
+
+@keyframes aparicionFantasma
+{
+    0%
+    {
+        width: 0%;
+        height: 0%;
+        transform: rotate(0deg);
+        left: 6%;
+        bottom: 25%;
+    }
+    50%
+    {
+        transform: rotate(540deg);
+    }
+    100%
+    {
+        width: 8%;
+        height: 15%;
+        transform: rotate(1080deg);
+        left: 4%;
+        bottom: 12%;
+    }
+}
+
+/* Animación del fantasma para ir hacia el portal */
+.animationFantasma2
+{
+    animation: irAlPortal 2s linear;
+}
+
+@keyframes irAlPortal
+{
+    0%
+    {
+        left: 6%;
+    }
+    100%
+    {
+        left: 88%;
+    }
+}
+
+/* Animación del fantasma para ir hacia el portal */
+.animationFantasma3
+{
+    animation: entrarEnElPortal 2s linear;
+}
+
+@keyframes entrarEnElPortal
+{
+    0%
+    {
+        width: 8%;
+        height: 15%;
+        transform: rotate(0deg);
+        left: 88%;
+        bottom: 12%;
+    }
+    50%
+    {
+        transform: rotate(540deg);
+    }
+    100%
+    {
+        width: 0%;
+        height: 0%;
+        transform: rotate(1080deg);
+        left: 94%;
+        bottom: 22%;
+    }
+}
+
+.animationFantasma4
+{
+    animation: desaparicionFantasma 0.75s linear;
+}
+
+@keyframes desaparicionFantasma
+{
+    0%
+    {
+        opacity: 1;
+    }
+    10%
+    {
+        opacity: 0;
+    }
+    20%
+    {
+        opacity: 1;
+    }
+    30%
+    {
+        opacity: 0;
+    }
+    40%
+    {
+        opacity: 1;
+    }
+    50%
+    {
+        opacity: 0;
+    }
+    60%
+    {
+        opacity: 1;
+    }
+    70%
+    {
+        opacity: 0;
+    }
+    80%
+    {
+        opacity: 1;
+    }
+    90%
+    {
+        opacity: 0;
+    }
+    100%
+    {
+        opacity: 1;
+    }
+}
+
+/* Animación del fantasma para desaparecer */
+.animatioFantasma5
+{
+    animation: desaparicionFantasma2 2s linear;
+}
+
+@keyframes desaparicionFantasma2
+{
+    0%
+    {
+        width: 15%;
+        height: 30%;
+        transform: rotate(0deg);
+    }
+    50%
+    {
+        transform: rotate(540deg);
+    }
+    100%
+    {
+        width: 0%;
+        height: 0%;
+        transform: rotate(1080deg);
+    }
+}
+
+/* Animación del fantasma para aparecer */
+/* .animationFantasmaCep
+{
+    animation: aparicionFantasmaCep 2s linear;
+}
+
+@keyframes aparicionFantasmaCep
+{
+    0%
+    {
+        width: 0%;
+        height: 0%;
+        transform: rotate(0deg);
+        left: 4%;
+        bottom: 0%;
+    }
+    50%
+    {
+        transform: rotate(540deg);
+    }
+    100%
+    {
+        width: 12%;
+        height: 25%;
+        transform: rotate(1080deg);
+        left: 4%;
+        bottom: 10%;
+    }
+} */
+
+/* Diseño de los botones */
+.botones
+{
+    width: 100%; 
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+#iniciar
+{
+    width: 30%; 
+    height: 50%;
+    background: url("../media/burbuja2Central.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    outline: none;
+    border: none;
+    opacity: 0;
+}
+
+/* 
+#iniciar:hover
+{
+    transform: scale(0.95);
+    opacity: 0.8;
+} 
+*/
+
+/* Animación del botón de inciar para aparecer */
+.animationBotonIniciar
+{
+    animation: aparicionIniciar 1s linear;
+}
+
+@keyframes aparicionIniciar
+{
+    0%
+    {
+        opacity: 0;
+    }
+    100%
+    {
+        opacity: 1;
+    } 
+}
+
+/* Diseño marcador */
+.marcador
+{
+    width: 11%;
+    height: 30%;
+    z-index: 999;
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+}
+
+/* Animación del marcador para aparecer */
+.animationMarcador
+{
+    animation: aparicionMarcador 1s linear;
+}
+
+@keyframes aparicionMarcador
+{
+    0%
+    {
+        opacity: 1;
+    }
+    10%
+    {
+        opacity: 0;
+    }
+    20%
+    {
+        opacity: 1;
+    }
+    30%
+    {
+        opacity: 0;
+    }
+    40%
+    {
+        opacity: 1;
+    }
+    50%
+    {
+        opacity: 0;
+    }
+    60%
+    {
+        opacity: 1;
+    }
+    70%
+    {
+        opacity: 0;
+    }
+    80%
+    {
+        opacity: 1;
+    }
+    90%
+    {
+        opacity: 0;
+    }
+    100%
+    {
+        opacity: 1;
+    } 
+}
+
+/* Animación del marcador para aparecer */
+.animationMarcador1
+{
+    animation: desaparicionMarcador 1s linear;
+}
+
+@keyframes desaparicionMarcador
+{
+    0%
+    {
+        opacity: 1;
+    }
+    20%
+    {
+        opacity: 0;
+    }
+    40%
+    {
+        opacity: 1;
+    }
+    60%
+    {
+        opacity: 0;
+    }
+    80%
+    {
+        opacity: 1;
+    }
+    100%
+    {
+        opacity: 0;
+    } 
+}
+
+/* Diseño de las vidas */
+.corazones
+{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.corazon1
+{
+    width: 33.3%;
+    height: 100%;
+    background: url("../media/vidaLlena.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-left: 6%;
+    opacity: 1;
+}
+
+.corazon2
+{
+    width: 33.3%;
+    height: 100%;
+    background: url("../media/vidaLlena.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-left: 6%;
+    opacity: 1;
+}
+
+.corazon3
+{
+    width: 33.3%;
+    height: 100%;
+    background: url("../media/vidaLlena.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-left: 6%;
+    opacity: 1;
+}
+
+/* Animación del corazón para parpadear */
+.animationCorazon
+{
+    animation: parpadeoCorazon 1s linear;
+}
+
+@keyframes parpadeoCorazon 
+{
+    0%
+    {
+        opacity: 1;
+    }
+    10%
+    {
+        opacity: 0;
+    }
+    20%
+    {
+        opacity: 1;
+    }
+    30%
+    {
+        opacity: 0;
+    }
+    40%
+    {
+        opacity: 1;
+    }
+    50%
+    {
+        opacity: 0;
+    }
+    60%
+    {
+        opacity: 1;
+    }
+    70%
+    {
+        opacity: 0;
+    }
+    80%
+    {
+        opacity: 1;
+    }
+    90%
+    {
+        opacity: 0;
+    }
+    100%
+    {
+        opacity: 1;
+    }   
+}
+
+/* Diseño del contador de burbujas */
+.burbujas
+{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+}
+
+.imagenBurbuja
+{
+    width: 100%;
+    height: 100%;
+    background: url("../media/burbuja2.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.numeroBurbujas
+{
+    width: 60%;
+    height: 60%;
+    background: url("../media/cero.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.numeroBurbujasFinal
+{
+    width: 60%;
+    height: 60%;
+    background: url("../media/cero.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Diseño de la primera burbuja */
+.burbuja1
+{
+    width: 6%; 
+    height: 15%;
+    left: 120%;
+    position: absolute;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("../media/burbuja2.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 1;
+}
+
+.burbuja2
+{
+    width: 6%; 
+    height: 15%;
+    left: 120%;
+    position: absolute;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("../media/burbuja2.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 1;
+}
+
+.burbuja3
+{
+    width: 6%; 
+    height: 15%;
+    left: 120%;
+    position: absolute;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("../media/burbuja2.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    left: 50%;
+    bottom: 12%;
+    opacity: 0;
+}
+
+.burbuja4
+{
+    width: 6%; 
+    height: 15%;
+    left: 120%;
+    position: absolute;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("../media/burbuja2.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 1;
+}
+
+.burbuja1Final
+{
+    width: 80%; 
+    height: 80%;
+    position: relative;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("../media/burbuja2.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 2%;
+    outline: none;
+    border: none;   
+}
+
+.burbuja2Final
+{
+    width: 80%; 
+    height: 80%;
+    position: relative;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("../media/burbuja2.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 2%;
+    outline: none;
+    border: none;
+}
+
+.burbuja3Final
+{
+    width: 80%; 
+    height: 80%;
+    position: relative;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("../media/burbuja2.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 2%;
+    outline: none;
+    border: none;
+}
+
+.burbuja4Final
+{
+    width: 80%; 
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("../media/burbuja2.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    outline: none;
+    border: none;
+}
+
+.imagen1
+{
+    width: 50%;
+    height: 50%;
+    background: url("../media/MC.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.imagen2
+{
+    width: 50%;
+    height: 50%;
+    background: url("../media/HT.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.imagen3
+{
+    width: 50%;
+    height: 50%;
+    background: url("../media/IC.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.imagen4
+{
+    width: 50%;
+    height: 50%;
+    background: url("../media/AG.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+} 
+
+/* Animación de la primera burbuja para que se mueva */
+.animationBurbuja
+{
+    animation: movimientoBurbuja 6s linear;
+}
+
+@keyframes movimientoBurbuja
+{
+    0%
+    {
+        left: 120%;
+    }
+    100%
+    {
+        left: -20%;
+    }
+}
+
+/* Animación de la burbuja para que aparezca */
+.animationBurbuja1
+{
+    animation: aparicionBurbuja 2s linear;
+}
+
+@keyframes aparicionBurbuja
+{
+    0%
+    {
+        opacity: 0;
+    }
+    100%
+    {
+        opacity: 1;
+    }
+}
+
+/* Animación de la burbuja para que sea capturada */
+.animationBurbujaCaptura
+{
+    animation: capturaBurbuja 1s linear;
+}
+
+@keyframes capturaBurbuja
+{
+    0%
+    {
+        opacity: 1;
+    }
+    10%
+    {
+        opacity: 0;
+    }
+    20%
+    {
+        opacity: 1;
+    }
+    30%
+    {
+        opacity: 0;
+    }
+    40%
+    {
+        opacity: 1;
+    }
+    50%
+    {
+        opacity: 0;
+    }
+    60%
+    {
+        opacity: 1;
+    }
+    70%
+    {
+        opacity: 0;
+    }
+    80%
+    {
+        opacity: 1;
+    }
+    90%
+    {
+        opacity: 0;
+    }
+    100%
+    {
+        opacity: 1;
+    }  
+}
+
+/* Diseño de los obstaculos */
+.agujero
+{
+    width: 6%; 
+    height: 40%;
+    left: 120%;
+    position: absolute;
+    z-index: 2;
+    padding: 0px;
+    background-color: transparent;
+}
+
+.obstaculo
+{
+    position: absolute;
+    z-index: 2;
+    padding: 0px;
+    outline: 1px solid black;
+}
+
+.obstaculo1
+{
+    width: 6%; 
+    height: 30%;
+    left: 120%;
+    bottom: 0%;
+}
+
+.obstaculo2
+{
+    width: 6%;
+    height: 30%;
+    transform: rotate(180deg);
+    top: 0%;
+    left: 120%;
+}
+
+.obstaculo3
+{
+    width: 6%; 
+    height: 40%;
+    left: 120%;
+}
+
+.obstaculo4
+{
+    width: 6%; 
+    height: 20%;
+    transform: rotate(180deg);
+    top: 0px;
+    left: 120%;
+}
+
+.obstaculo5
+{
+    width: 6%; 
+    height: 20%;
+    left: 120%;
+}
+
+.obstaculo6
+{
+    width: 6%; 
+    height: 40%;
+    transform: rotate(180deg);
+    top: 0px;
+    left: 120%;
+}
+
+/* Animación del obstaculo para moverse */
+.animationObstaculo
+{
+    animation: movimientoObstaculo 6s linear infinite;
+}
+
+@keyframes movimientoObstaculo
+{
+    0%
+    {
+        left: 120%;
+    }
+    100%
+    {
+        left: -20%;
+    }
+}
+
+/* Diseño del portal de salida */
+#portalFinal
+{
+    width: 0%;
+    height: 0%;
+    left: 88%;
+    bottom: 8%;
+    background: url("../media/7681b5a15d4bd9d1e39c6529f628eb-unscreen.gif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 1;
+}
+
+/* Animación del portal para aparecer */
+.animationPortalFinal
+{
+    animation: aparicionPortalFinal 1s linear;
+}
+
+@keyframes aparicionPortalFinal
+{
+    0%
+    {
+        width: 0%;
+        height: 0%;
+    }
+    100%
+    {
+        width: 10%;
+        height: 30%;
+    }
+}
+
+/* Animación del portal de salida para desaparecer */
+.animationPortalFinal1
+{
+    animation: desaparicionPortalFinal 1s linear;
+}
+
+@keyframes desaparicionPortalFinal
+{
+    0%
+    {
+        width: 10%;
+        height: 30%;
+    }
+    100%
+    {
+        width: 0%;
+        height: 0%;
+    }
+}
+
+/* Diseño del cuadro de resultados */
+.resumen
+{
+    opacity: 0;
+    top: 0;
+    z-index: 800;
+}
+
+/* Animación del resumen para aparecer */
+.animationResumen
+{
+    animation: aparicionResumen 2s linear;
+}
+
+@keyframes aparicionResumen
+{
+    0%
+    {
+        opacity: 0;
+    }
+    100%
+    {
+        opacity: 1;
+    }
+}
+
+/* Diseño del tiempo final */
+.tiempo
+{
+    width: 100%;
+    height: 50%;
+    font-family: superMario;
+    font-size: 30px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Diseño de puntos final */
+.puntos
+{
+    width: 100%;
+    height: 50%;
+    font-family: superMario;
+    font-size: 30px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Diseño de los corazones finales */
+.corazonFinal1
+{
+    width: 33.3%;
+    height: 75%;
+    background: url("../media/vidaVacia.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-left: 6%;
+    opacity: 1;
+}
+
+.corazonFinal2
+{
+    width: 33.3%;
+    height: 75%;
+    background: url("../media/vidaVacia.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-left: 6%;
+    opacity: 1;
+}
+
+.corazonFinal3
+{
+    width: 33.3%;
+    height: 75%;
+    background: url("../media/vidaVacia.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-left: 6%;
+    opacity: 1;
+}
+
+/* Diseño de la burbuja de familias final */
+.imagenBurbujaFinal
+{
+    width: 100%;
+    height: 100%;
+    background: url("../media/burbuja2.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Diseño del títilo de familia de curso */
+.familiaCursos
+{
+    width: 100%;
+    height: 50%;
+    font-family: superMario;
+    font-size: 10px;
+    color: black;
+    position: relative;
+    bottom: 0;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+/* Diseño de la burbuja de refrescar la pantalla */
+.burbujaRefrescar
+{
+    width: 5%; 
+    height: 12%;
+    position: fixed;
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+    background: url("../media/burbuja2.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    right: 2%;
+    top: 2%;
+    opacity: 0;
+    display: none;
+}
+
+.burbujaRefrescar:hover
+{
+    transform: scale(0.9);
+}
+
+.refrescar
+{
+    width: 50%;
+    height: 50%;
+    background: url("../media/refresh.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Animación de la burbuja de refresca para que aparezca */
+.animationBurbujaRefrescar
+{
+    animation: aparicionBurbujaRefrescar 2s linear;
+}
+
+@keyframes aparicionBurbujaRefrescar
+{
+    0%
+    {
+        display: flex;
+        opacity: 0;
+    }
+    100%
+    {
+        opacity: 1;
+    }
+}
+
+.flip-card 
+{
+    width: 100%;
+    perspective: 1000px;
+    cursor: pointer;
+}
+  
+.flip-card-inner 
+{
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    background-color: #0f2323;
+    border-radius: 5%;
+}
+
+.flip-card-front 
+{
+    background-color: #bbb;
+}
+
+.flip-card-back 
+{
+    background-color: #0f2323;
+    transform: rotateY(180deg);
+    border-radius: 5%;
+}
+
+.flip-card-front, .flip-card-back 
+{
+    position: absolute;
+    width: 85%;
+    height: 85%;
+    backface-visibility: hidden;
+}
+  
+.flip-card:hover .flip-card-inner 
+{
+    transform: rotateY(180deg);
+}

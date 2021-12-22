@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/styleGame.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="../tercers/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+</head>
+<body class="juego">
+    
+    <!-- Barra de progreso -->
+    <div class="progreso">
+        <div class="colorProgreso"></div>
+    </div>
+
+    <!-- Cuadro de ayuda -->
+    <div class="ayuda">¡Recoge todas las burbujas esquivando las tuberias!</div>
+
+    <!-- Pantalla del juego -->
+    <div id="cielo"> 
+
+        <!-- Suelo del juego -->
+        <div id="suelo"></div>
+
+        <!-- Nubes -->
+        <div class="nube nube1"></div>
+        <div class="nube nube2"></div>
+        <div class="nube nube3"></div>
+        <div class="nube nube4"></div>
+        <div class="nube nube5"></div>
+        <div class="nube nube6"></div>
+        <div class="nube nube7"></div>
+        <div class="nube nube8"></div>
+        <div class="nube nube9"></div>
+        
+        <!-- Portal -->
+        <div id="portal"></div>
+
+        <!-- Fantasma -->
+        <div id="fantasma"></div>
+
+        <!-- Botones -->
+        <div class="botones">
+            <button onclick="contadorAtras()" id="iniciar"></button>
+        </div>
+
+        <!-- Marcador -->
+        <!-- Vidas -->
+        <div class="marcador">
+            <div class="corazones">
+                <div class="corazon1"></div>
+                <div class="corazon2"></div>
+                <div class="corazon3"></div>
+            </div>
+            <div class="burbujas">
+                <div class="imagenBurbuja">
+                    <div class="numeroBurbujas"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Obstaculos y agujeros -->
+        <img src="../media/pipeGrisR.png" class="obstaculo obstaculo1">
+        <img src="../media/pipeGrisR.png" class="obstaculo obstaculo2">
+        <div class="agujero agujero1"></div>
+        <img src="../media/pipeGrisR.png" class="obstaculo obstaculo3">
+        <img src="../media/pipeGrisR.png" class="obstaculo obstaculo4">
+        <div class="agujero agujero2"></div>
+        <img src="../media/pipeGrisR.png" class="obstaculo obstaculo5">
+        <img src="../media/pipeGrisR.png" class="obstaculo obstaculo6">
+        <div class="agujero agujero3"></div> 
+
+        <!-- Burbuja de Comercio y Márqueting -->
+        <div class="burbuja1">
+            <div class="imagen1"></div>
+        </div>
+        <!-- Burbuja de Hosteleria y Turismo -->
+        <div class="burbuja2">
+            <div class="imagen2"></div>
+        </div>
+        <!-- Burbuja de Informática y Comunicaciones -->
+        <div class="burbuja3">
+            <div class="imagen3"></div>
+        </div>
+        <!-- Burbuja de Administración y Gestión -->
+        <div class="burbuja4">
+            <div class="imagen4"></div>
+        </div>
+
+        <!-- Portal final -->
+        <div id="portalFinal"></div>
+
+        <!-- Cuadro de resultados -->
+        <div class="container position-absolute top-50 start-50 translate-middle 
+        w-100 h-75 bg-transparent resumen d-flex justify-content-center align-items-center
+        flex-column">
+            <!-- Primera fila: TIEMPO, VIDAS, BURBUJAS -->
+            <div class="row h-50" style="width: 90%">
+                <!-- Puntos finales -->
+                <div class="col h-75 w-100 d-flex justify-content-end align-items-center">
+                    <div class="h-75 w-100 puntos"></div>
+                </div>
+                <!-- Tiempo final -->
+                <div class="col h-75 w-100 d-flex justify-content-end align-items-center">
+                    <div class="h-75 w-75 tiempo"></div>
+                </div>
+                <!-- Cantidad de burbujas finales -->
+                <div class="col h-75 w-100 d-flex justify-content-start align-items-center">
+                    <div class="h-75 w-75 imagenBurbujaFinal">
+                        <div class="numeroBurbujasFinal"></div>
+                    </div>
+                </div>
+                <!-- Vidas finales -->
+                <div class="col d-flex h-75 w-50 flex-row justify-content-start align-items-center">
+                    <div class="corazonFinal1"></div>
+                    <div class="corazonFinal2"></div>
+                    <div class="corazonFinal3"></div>
+                </div>
+            </div>
+            <!-- Segunda fila: BURBUJAS INDIVIDUALES -->
+            <div class="row h-50" style="width: 85%;">
+                <!-- Burbuja de Comercio y Márqueting final -->
+                <div id="flip1" class="col h-100 d-flex flex-column justify-content-center align-items-center 
+                rounded-3 m-2 flip-card">
+                    <div class="flip-card-inner d-flex justify-content-center align-items-center">
+                        <div class="flip-card-front burbuja1Final" style="background-color: #0f2323;">
+                            <div class="imagen1"></div>
+                        </div>
+                        <a href="../../../frontend/cursos.php#desplegarAC" type="button" class="flip-card-back h-100 w-100 d-flex flex-column justify-content-center align-items-center">
+                            <p class="familiaCursos text-white d-flex justify-content-center align-items-center">
+                                Comercio <br> y <br> Marqueting
+                            </p>
+                            <img src="../media/right-arrow.png" class="w-25 h-25">
+                        </a>
+                    </div>
+                </div>
+                <!-- Burbuja de Hosteleria y Turismo final -->
+                <div id="flip2" class="col h-100 d-flex flex-column justify-content-center align-items-center
+                rounded-3 m-2 flip-card">
+                    <div class="flip-card-inner d-flex justify-content-center align-items-center">
+                        <div class="flip-card-front burbuja2Final" style="background-color: #0f2323;">
+                            <div class="imagen2"></div>
+                        </div>
+                        <a href="../../../frontend/cursos.php#desplegarAVGE" type="button" class="flip-card-back h-100 w-100 d-flex flex-column justify-content-center align-items-center">
+                            <p class="familiaCursos text-white d-flex justify-content-center align-items-center">
+                                Hosteleria <br> y <br> Turismo
+                            </p>
+                            <img src="../media/right-arrow.png" class="w-25 h-25">
+                        </a>
+                    </div>
+                </div>
+                <!-- Burbuja de Administración y Gestión final -->
+                <div id="flip3" class="col h-100 d-flex flex-column justify-content-center align-items-center 
+                rounded-3 m-2 flip-card">
+                    <div class="flip-card-inner d-flex justify-content-center align-items-center">
+                        <div class="flip-card-front burbuja4Final" style="background-color: #0f2323;">
+                            <div class="imagen4"></div>
+                        </div>
+                        <a href="../../../frontend/cursos.php#desplegarGA" type="button" class="flip-card-back h-100 w-100 d-flex flex-column justify-content-center align-items-center">
+                            <p class="familiaCursos text-white d-flex justify-content-center align-items-center">
+                                Administracion <br> y <br> Gestion
+                            </p>
+                            <img src="../media/right-arrow.png" class="w-25 h-25">
+                        </a>
+                    </div>
+                </div>
+                <!-- Burbuja de Informática y Comunicaciones final -->
+                <div id="flip4" class="col h-100 d-flex flex-column justify-content-center align-items-center
+                rounded-3 m-2 flip-card">
+                    <div class="flip-card-inner d-flex justify-content-center align-items-center">
+                        <div class="flip-card-front burbuja3Final" style="background-color: #0f2323;">
+                            <div class="imagen3"></div>
+                        </div>
+                        <a href="../../../frontend/cursos.php#desplegarSMIX" type="button" class="flip-card-back h-100 w-100 d-flex flex-column justify-content-center align-items-center">
+                            <p class="familiaCursos text-white d-flex justify-content-center align-items-center">
+                                Informatica <br> y <br> Comunicaciones
+                            </p>
+                            <img src="../media/right-arrow.png" class="w-25 h-25">
+                        </A>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fondo borroso -->
+        <div class="fondoBorroso"></div>
+    </div>
+
+    <!-- Botón para refrescar la página -->
+    <div class="burbujaRefrescar">
+        <div class="refrescar"></div>
+    </div>
+
+    <script src="../js/scriptGame.js"></script>
+    <script src="../tercers/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+</body>
+</html>
